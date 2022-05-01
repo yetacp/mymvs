@@ -3,7 +3,7 @@
 export LANGUAGE=English
 
 # create folders
-mkdir -p backups log prt shadows
+mkdir -p backups dasd http log prt shadows
 
 cd ./shadows
 rm -f *
