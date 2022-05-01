@@ -1,0 +1,2 @@
+exec scripts/automate.rexx scripts/autostart.txt log/hercules.log -d &&
+ipl 150

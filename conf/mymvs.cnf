@@ -1,0 +1,84 @@
+##################################
+# HERCULES EMULATOR CONTROL FILE #
+##################################
+
+#YROFFSET  -28      # offset for non-Y2k compliant OS
+ARCHLVL   S/370
+CNSLPORT  3270
+CPUMODEL  3033
+CPUSERIAL 134001
+# Enable SXMACLIB: additional ESA/390 and z/Architecture instructions
+FACILITY ENABLE HERC_370_EXTENSION     
+# Enable TCP/IP
+FACILITY ENABLE HERC_TCPIP_EXTENSION
+FACILITY ENABLE HERC_TCPIP_PROB_STATE
+# Enable web console http://127.0.0.1:8038 User/Password
+HTTP PORT 8038 AUTH HMVS01 CUL8TR 
+HTTP ROOT http      # web console folder files
+HTTP START          # start web console
+LOADPARM  ........
+MAINSIZE  16        # 16Mb RAM
+MAXCPU 2
+NUMCPU 2
+OSTAILOR  QUIET     # controls number of error messages logged
+PANOPT    MSGCOLOR=DARK RATE=250 "TITLE=MyMVS"
+SYSEPOCH  1900      # base date for the TOD clock
+TZOFFSET  +0200      # daylight savings time in effect
+XPNDSIZE  0
+
+#####################
+# SYSGEN AUTOMATION #
+#####################
+DIAG8CMD ENABLE
+REXX MSGP ON
+SHCMDOPT ENABLE
+
+# .-----------------------------Device number
+# |     .-----------------------Device type
+# |     |       .---------------File name
+# |     |       |
+# V     V       V
+#---    ----    --------------------------------- card readers
+000C 3505 3505 sockdev ebcdic autopad eof      # EBCDIC card reader
+001C    3505    jcl/null.jcl eof
+#000C   3505    localhost:3505 sockdev autopad trunc ascii eof
+# ----------------------------------------------- card punches & printers
+000D    3525    reader/pch00d.txt ebcdic       # JES2
+000E    1403    prt/prt00e.txt                 # JES2
+000F    3211    prt/prt00f.txt                 # JES2
+001D    3525    reader/pch01d.txt ascii
+# ----------------------------------------------- 2401 on channel 1
+0100.4  3420    *
+# ----------------------------------------------- 3420 on channel 3
+0310.4  3420    *
+# ----------------------------------------------- 3350 on Channel 1
+0150    3350    dasd/mvsres.3350 ro sf=shadows/mvsres_
+0151    3350    dasd/mvs000.3350 ro sf=shadows/mvs000_
+0152    3350    dasd/page00.3350 ro sf=shadows/page00_
+0153    3350    dasd/spool1.3350 ro sf=shadows/spool1_
+#------------------------------------------------ 3380 on Channel 1
+0180    3380    dasd/pub000.3380 ro sf=shadows/pub000_
+#------------------------------------------------ 3390 on Channel 1
+0190    3390    dasd/pub001.3390 cu=3880 ro sf=shadows/pub001_
+#------------------------------------------------ 2314 on Channel 2
+0220    2314    dasd/sortw1.2314 ro sf=shadows/sortw1_
+0221    2314    dasd/sortw2.2314 ro sf=shadows/sortw2_
+0222    2314    dasd/sortw3.2314 ro sf=shadows/sortw3_
+0223    2314    dasd/sortw4.2314 ro sf=shadows/sortw4_
+0224    2314    dasd/sortw5.2314 ro sf=shadows/sortw5_
+0225    2314    dasd/sortw6.2314 ro sf=shadows/sortw6_
+#------------------------------------------------ 3350 on Channel 2
+0250    3350    dasd/smp000.3350 ro sf=shadows/smp000_
+0251    3350    dasd/work00.3350 ro sf=shadows/work00_
+0252    3350    dasd/work01.3350 ro sf=shadows/work01_
+0253    3350    dasd/syscpk.3350 ro sf=shadows/syscpk_
+# ----------------------------------------------- consoles
+0010    3270    console      # master console
+0009    3215-C  / # alternate console (required for automation)
+0015    1403    log/mvslog.txt   # hardcopy of master console
+# ----------------------------------------------- MVSDDT
+0610 CTCT 17610 127.0.0.1 18610 1024
+0611 CTCT 17611 127.0.0.1 18611 1024
+# ----------------------------------------------- 3270's for TSO
+0400.8  3270
+# -----------------------------------------------

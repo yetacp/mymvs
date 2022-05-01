@@ -1,0 +1,2 @@
+# Clear SYS1.LOGREC
+/s clearerp

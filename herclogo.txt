@@ -1,0 +1,59 @@
+@ALIGN NONE
+@SBA 0,0
+@SF P
+Hercules Version  :
+@SF HP
+$(VERSION)
+@NL
+@SF P
+Host name         :
+@SF HP
+$(HOSTNAME)
+@NL
+@SF P
+Host OS           :
+@SF HP
+$(HOSTOS)-$(HOSTOSREL) $(HOSTOSVER)
+@NL
+@SF P
+Host Architecture :
+@SF HP
+$(HOSTARCH)
+@NL
+@SF P
+Processors        :
+@SF HP
+$(HOSTNUMCPUS)
+@NL
+@SF P
+LPAR Name         :
+@SF HP
+$(LPARNAME)
+@NL
+@SF P
+Device number     :
+@SF HP
+$(CSS):$(CCUU)
+@NL
+@SF P
+Subchannel        :
+@SF HP
+$(SUBCHAN)
+@SF P
+@ALIGN LEFT
+
+
+                                __  ____    _______                 
+            ____ ___  __  __   /  |/  / |  / / ___/                 
+           / __ `__ \/ / / /  / /|_/ /| | / /\__ \                  
+          / / / / / / /_/ /  / /  / / | |/ /___/ /                  
+         /_/ /_/ /_/\__, /  /_/  /_/  |___//____/                   
+             ____  //___/                                         __
+            / __ \/ /___ ___  ______ __________  __  ______  ____/ /
+           / /_/ / / __ `/ / / / __ `/ ___/ __ \/ / / / __ \/ __  / 
+          / ____/ / /_/ / /_/ / /_/ / /  / /_/ / /_/ / / / / /_/ /  
+         /_/   /_/\__,_/\__, /\__, /_/   \____/\__,_/_/ /_/\__,_/   
+                       /____//____/                                 
+   
+                    https://github.com/yetacp/playmvs
+
