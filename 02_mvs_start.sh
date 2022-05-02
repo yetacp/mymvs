@@ -6,7 +6,7 @@ export LANGUAGE=English
 mkdir -p backups dasd http log prt shadows
 
 cd ./shadows
-rm -f *
+rm -f mvs* page* pub* smp* sort* spool* sycpk* work*
 # recover RAMDISK
 if [ -f ../dasd_shadows.tar.gz ]; then
   tar -xzf ../dasd_shadows.tar.gz
