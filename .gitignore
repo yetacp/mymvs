@@ -1,7 +1,13 @@
 *.a
 *.o
 backups/*.tar.gz
+dasd/*.2314
+dasd/*.3330
+dasd/*.3350
+dasd/*.3380
+dasd/*.3390
 dasd_shadows.tar.gz
+http
 log/hercules.log
 log/mvslog.txt
 prt/prt00e.txt
@@ -25,5 +31,3 @@ shadows/syscpk1
 shadows/work001
 shadows/work011
 spool/*.prt
-dasd
-http
