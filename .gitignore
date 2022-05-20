@@ -1,3 +1,4 @@
+
 *.a
 *.o
 backups/*.tar.gz
@@ -7,11 +8,13 @@ dasd/*.3350
 dasd/*.3380
 dasd/*.3390
 dasd_shadows.tar.gz
+failure
 http
 log/hercules.log
 log/mvslog.txt
 prt/prt00e.txt
 prt/prt00f.txt
+rdrprep/rdrprep
 reader/pch00d.txt
 reader/pch01d.txt
 shadows/mvs0001
@@ -31,4 +34,4 @@ shadows/syscpk1
 shadows/work001
 shadows/work011
 spool/*.prt
-failure
+tmp.jcl_E
